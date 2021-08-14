@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 import { actPlayGame } from "../store/actions/OanTuTiAction";
 
 class GameOanTuTi extends Component {
+  // bua<=>0
+  // bao<=>1
+  // keo<=>2
+  // ct:(p1+1) % 3 == p2 -->p2 thắng
   listHand = [
     "./image/hand/bua.png",
     "./image/hand/bao.png",
