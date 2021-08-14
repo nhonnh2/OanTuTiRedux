@@ -1,1 +1,1 @@
-export const [] = [];
+export const [CHOOSE_HAND, PLAY_GAME] = ['CHOOSE_HAND', 'PLAY_GAME'];

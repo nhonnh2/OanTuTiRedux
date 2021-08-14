@@ -1,5 +1,9 @@
 import * as onTuTiConstans from '../constants/OanTuTiConstans'
-export const act = para => ({
-    type: '',
-    payload: ''
+export const actChooseHand = idx => ({
+    type: onTuTiConstans.CHOOSE_HAND,
+    payload: idx
+})
+export const actPlayGame = () => ({
+    type: onTuTiConstans.PLAY_GAME,
+    payload: null
 })

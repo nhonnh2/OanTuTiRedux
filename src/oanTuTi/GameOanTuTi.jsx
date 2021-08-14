@@ -2,14 +2,22 @@ import React, { Component } from "react";
 import Player from "./Player";
 import PlayerComputer from "./PlayerComputer";
 import ThongTin from "./ThongTin";
+import { connect } from "react-redux";
+import { actPlayGame } from "../store/actions/OanTuTiAction";
 
-export default class GameOanTuTi extends Component {
+class GameOanTuTi extends Component {
+  listHand = [
+    "./image/hand/bua.png",
+    "./image/hand/bao.png",
+    "./image/hand/keo.png",
+  ];
   render() {
+    const { playGame } = this.props;
     return (
       <div className="myContainer pt-5">
         <div className="row">
           <div className="col-4">
-            <Player />
+            <Player listHand={this.listHand} />
           </div>
           <div className="col-4">
             {" "}
@@ -17,11 +25,20 @@ export default class GameOanTuTi extends Component {
           </div>
           <div className="col-4">
             {" "}
-            <PlayerComputer />
+            <PlayerComputer listHand={this.listHand} />
           </div>
         </div>
-        <button className="btn btn-success">Play Game</button>
+        <button className="btn btn-success" onClick={playGame}>
+          Play Game
+        </button>
       </div>
     );
   }
 }
+
+const mapDisPatchToDrops = (dispatch) => ({
+  playGame: () => {
+    dispatch(actPlayGame());
+  },
+});
+export default connect(null, mapDisPatchToDrops)(GameOanTuTi);

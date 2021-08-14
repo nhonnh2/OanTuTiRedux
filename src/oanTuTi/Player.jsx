@@ -1,27 +1,36 @@
 import React, { Component } from "react";
-
-export default class Player extends Component {
+import { connect } from "react-redux";
+import { actChooseHand } from "../store/actions/OanTuTiAction";
+class Player extends Component {
   render() {
+    const { listHand, player, chooseHand } = this.props;
     return (
       <div className="player">
         <div className="result">
-          <img src="./image/hand/keo.png" alt="" />
+          <img src={listHand[player]} alt="" />
         </div>
         <div className="player__img">
           <img src="./image/player/player.png" alt="" />
         </div>
         <div className="listHand">
-          <button>
-            <img src="./image/hand/keo.png" alt="" />
-          </button>
-          <button>
-            <img src="./image/hand/bua.png" alt="" />
-          </button>
-          <button>
-            <img src="./image/hand/bao.png" alt="" />
-          </button>
+          {listHand.map((srcImgHand, idx) => {
+            return (
+              <button key={idx} onClick={() => chooseHand(idx)}>
+                <img src={srcImgHand} alt="" />
+              </button>
+            );
+          })}
         </div>
       </div>
     );
   }
 }
+const mapStateToDrops = (state) => ({
+  player: state.gameOanTuTiReducer.player,
+});
+const mapDispatchToDrops = (dispatch) => ({
+  chooseHand: (idx) => {
+    dispatch(actChooseHand(idx));
+  },
+});
+export default connect(mapStateToDrops, mapDispatchToDrops)(Player);
