@@ -2,15 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import "jquery/dist/jquery";
+import "popper.js/dist/umd/popper";
+import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* provider cung cấp store cho toàn bộ app  */}
+    {" "}
+    {/* provider cung cấp store cho toàn bộ app  */}{" "}
     <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>{" "}
   </React.StrictMode>,
   document.getElementById("root")
 );

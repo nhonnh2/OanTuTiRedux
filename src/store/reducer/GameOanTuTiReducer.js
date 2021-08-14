@@ -12,5 +12,6 @@ const gameOanTuTiReducer = (state = initialState, action) => {
         default:
             break;
     }
+    return state
 }
 export default gameOanTuTiReducer
